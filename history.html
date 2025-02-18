@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>IoT Dashboard</title>
+    <!-- HTML5 Shim and Respond.js IE9 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+      <![endif]-->
+      <!-- Meta -->
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimal-ui">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+      <meta name="description" content="CodedThemes">
+      <meta name="keywords" content=" Admin , Responsive, Landing, Bootstrap, App, Template, Mobile, iOS, Android, apple, creative app">
+      <meta name="author" content="CodedThemes">
+      <!-- Favicon icon -->
+      <link rel="icon" href="assets/images/favicon.ico" type="image/x-icon">
+      <!-- Google font-->
+      <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,600" rel="stylesheet">
+      <!-- Required Fremwork -->
+      <link rel="stylesheet" type="text/css" href="assets/css/bootstrap/css/bootstrap.min.css">
+      <!-- themify-icons line icon -->
+      <link rel="stylesheet" type="text/css" href="assets/icon/themify-icons/themify-icons.css">
+      <!-- ico font -->
+      <link rel="stylesheet" type="text/css" href="assets/icon/icofont/css/icofont.css">
+      <!-- Style.css -->
+      <link rel="stylesheet" type="text/css" href="assets/css/style.css">
+      <link rel="stylesheet" type="text/css" href="assets/css/jquery.mCustomScrollbar.css">
+  </head>
+
+  <body>
+    <!-- Pre-loader start -->
+    <div class="theme-loader">
+        <div class="ball-scale">
+            <div class='contain'>
+                <div class="ring">
+                    <div class="frame"></div>
+                </div>
+                <div class="ring">
+                    <div class="frame"></div>
+                </div>
+                <div class="ring">
+
+                    <div class="frame"></div>
+                </div>
+                <div class="ring">
+                    <div class="frame"></div>
+                </div>
+                <div class="ring">
+                    <div class="frame"></div>
+                </div>
+                <div class="ring">
+                    <div class="frame"></div>
+                </div>
+                <div class="ring">
+                    <div class="frame"></div>
+                </div>
+                <div class="ring">
+                    <div class="frame"></div>
+                </div>
+                <div class="ring">
+                    <div class="frame"></div>
+                </div>
+                <div class="ring">
+                    <div class="frame"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Pre-loader end -->
+    <div id="pcoded" class="pcoded">
+        <div class="pcoded-overlay-box"></div>
+        <div class="pcoded-container navbar-wrapper">
+
+            
+            <div class="pcoded-main-container">
+                <div class="pcoded-wrapper">
+                    <nav class="pcoded-navbar">
+                        <div class="sidebar_toggle"><a href="#"><i class="icon-close icons"></i></a></div>
+                        <div class="pcoded-inner-navbar main-menu">
+                            <div class="">
+                                <div class="main-menu-header">
+                                    <img class="img-40 img-radius" src="assets/images/dt.png" alt="User-Profile-Image">
+                                    <div class="user-details">
+                                        <span>Duc Trinh</span>
+                                        <span id="more-details">Access<i class="ti-angle-down"></i></span>
+                                    </div>
+                                </div>
+
+                                <div class="main-menu-content">
+                                    <ul>
+                                        <li class="more-details">
+                                            <a href="profile.html"><i class="ti-user"></i>View Profile</a>
+                                            <a href="auth-normal-sign-in.html"><i class="ti-layout-sidebar-left"></i>Logout</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="pcoded-search">
+                                <span class="searchbar-toggle">  </span>
+                                <div class="pcoded-search-box ">
+                                    <input type="text" placeholder="Search">
+                                    <span class="search-icon"><i class="ti-search" aria-hidden="true"></i></span>
+                                </div>
+                            </div>
+                            <ul class="pcoded-item pcoded-left-item">
+                                <li>
+                                    <a href="index.html">
+                                        <span class="pcoded-micon"><i class="ti-home"></i><b>D</b></span>
+                                        <span class="pcoded-mtext" data-i18n="nav.dash.main">Dashboard</span>
+                                        <span class="pcoded-mcaret"></span>
+                                    </a>
+                                </li>
+                                
+                            </ul>                            
+
+                            <ul class="pcoded-item pcoded-left-item">
+                                
+                                <li class="active">
+                                    <a href="history.html">
+                                        <span class="pcoded-micon"><i class="ti-layers"></i><b>FC</b></span>
+                                        <span class="pcoded-mtext" data-i18n="nav.form-components.main">History</span>
+                                        <span class="pcoded-mcaret"></span>
+                                    </a>
+                                </li>
+                                
+                                <li>
+                                    <a href="data.html">
+                                        <span class="pcoded-micon"><i class="ti-layers"></i><b>FC</b></span>
+                                        <span class="pcoded-mtext" data-i18n="nav.form-components.main">Data</span>
+                                        <span class="pcoded-mcaret"></span>
+                                    </a>
+                                </li>
+                                
+                            </ul>
+
+                        
+                        </div>
+                    </nav>
+                    <div class="container mt-4 pcoded-content">
+                        <h2 class="text-center">Device On/Off History</h2>
+                    
+                        <!-- Search Bar -->
+                        <div class="row mb-3">
+                            <div class="col-md-6">
+                                <input type="text" id="searchInput" class="form-control" placeholder="Search device...">
+                            </div>
+                            <div class="col-md-3">
+                                <select id="pageSize" class="form-select">
+                                    <option value="5">5 Rows</option>
+                                    <option value="20" selected>20 Rows</option>
+                                    <option value="50">50 Rows</option>
+                                    <option value="100">100 Rows</option>
+                                </select>
+                            </div>
+                        </div>
+                    
+                        <!-- Table -->
+                        <table class="table table-bordered table-hover text-center">
+                            <thead class="table-primary">
+                                <tr>
+                                    <th>#</th>
+                                    <th>Device Name</th>
+                                    <th>Status</th>
+                                    <th>Time</th>
+                                    <th>Details</th>
+                                </tr>
+                            </thead>
+                            <tbody id="historyTable">
+                                <!-- Rows will be added dynamically via JavaScript -->
+                            </tbody>
+                        </table>
+                    
+                        <!-- Pagination -->
+                        <nav>
+                            <ul class="pagination justify-content-center" id="pagination">
+                                <!-- Pagination buttons will be generated dynamically -->
+                            </ul>
+                        </nav>
+                    </div>
+                    <script>
+                        const data = [
+                            { id: 1, name: "Fan", status: "On", time: "2025-02-17 10:00 AM", details: "Turned on manually" },
+                            { id: 2, name: "Light", status: "Off", time: "2025-02-17 11:15 AM", details: "Turned off by schedule" },
+                            { id: 3, name: "AC", status: "On", time: "2025-02-17 12:30 PM", details: "Remote control activation" },
+                            { id: 4, name: "Heater", status: "Off", time: "2025-02-17 01:00 PM", details: "Power saving mode" },
+                            { id: 5, name: "TV", status: "On", time: "2025-02-17 02:10 PM", details: "User turned on" },
+                            { id: 6, name: "Speaker", status: "Off", time: "2025-02-17 03:20 PM", details: "Auto shutdown" },
+                            { id: 7, name: "Fridge", status: "On", time: "2025-02-17 04:30 PM", details: "Temperature control" },
+                            { id: 8, name: "Lamp", status: "Off", time: "2025-02-17 05:40 PM", details: "Scheduled off" },
+                            { id: 9, name: "Router", status: "On", time: "2025-02-17 06:50 PM", details: "Rebooted" },
+                            { id: 10, name: "Coffee Maker", status: "Off", time: "2025-02-17 07:00 PM", details: "User turned off" }
+                        ];
+                    
+                        let currentPage = 1;
+                        let pageSize = parseInt(document.getElementById("pageSize").value);
+                    
+                        function displayTable() {
+                            const searchQuery = document.getElementById("searchInput").value.toLowerCase();
+                            const filteredData = data.filter(item =>
+                                item.name.toLowerCase().includes(searchQuery) ||
+                                item.status.toLowerCase().includes(searchQuery) ||
+                                item.details.toLowerCase().includes(searchQuery)
+                            );
+                    
+                            const start = (currentPage - 1) * pageSize;
+                            const end = start + pageSize;
+                            const paginatedData = filteredData.slice(start, end);
+                    
+                            const tableBody = document.getElementById("historyTable");
+                            tableBody.innerHTML = "";
+                            
+                            paginatedData.forEach((item, index) => {
+                                const row = `<tr>
+                                    <td>${start + index + 1}</td>
+                                    <td>${item.name}</td>
+                                    <td>${item.status === "On" ? '<span class="badge bg-success">On</span>' : '<span class="badge bg-danger">Off</span>'}</td>
+                                    <td>${item.time}</td>
+                                    <td>${item.details}</td>
+                                </tr>`;
+                                tableBody.innerHTML += row;
+                            });
+                    
+                            updatePagination(filteredData.length);
+                        }
+                    
+                        function updatePagination(totalItems) {
+                            const totalPages = Math.ceil(totalItems / pageSize);
+                            const paginationElement = document.getElementById("pagination");
+                            paginationElement.innerHTML = "";
+                    
+                            for (let i = 1; i <= totalPages; i++) {
+                                const activeClass = i === currentPage ? "active" : "";
+                                paginationElement.innerHTML += `
+                                    <li class="page-item ${activeClass}">
+                                        <a class="page-link" href="#" onclick="changePage(${i})">${i}</a>
+                                    </li>`;
+                            }
+                        }
+                    
+                        function changePage(page) {
+                            currentPage = page;
+                            displayTable();
+                        }
+                    
+                        document.getElementById("searchInput").addEventListener("input", () => {
+                            currentPage = 1;
+                            displayTable();
+                        });
+                    
+                        document.getElementById("pageSize").addEventListener("change", () => {
+                            pageSize = parseInt(document.getElementById("pageSize").value);
+                            currentPage = 1;
+                            displayTable();
+                        });
+                    
+                        displayTable();
+                    </script>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+
+        <!-- Warning Section Starts -->
+        <!-- Older IE warning message -->
+    <!--[if lt IE 9]>
+<div class="ie-warning">
+    <h1>Warning!!</h1>
+    <p>You are using an outdated version of Internet Explorer, please upgrade <br/>to any of the following web browsers to access this website.</p>
+    <div class="iew-container">
+        <ul class="iew-download">
+            <li>
+                <a href="http://www.google.com/chrome/">
+                    <img src="assets/images/browser/chrome.png" alt="Chrome">
+                    <div>Chrome</div>
+                </a>
+            </li>
+            <li>
+                <a href="https://www.mozilla.org/en-US/firefox/new/">
+                    <img src="assets/images/browser/firefox.png" alt="Firefox">
+                    <div>Firefox</div>
+                </a>
+            </li>
+            <li>
+                <a href="http://www.opera.com">
+                    <img src="assets/images/browser/opera.png" alt="Opera">
+                    <div>Opera</div>
+                </a>
+            </li>
+            <li>
+                <a href="https://www.apple.com/safari/">
+                    <img src="assets/images/browser/safari.png" alt="Safari">
+                    <div>Safari</div>
+                </a>
+            </li>
+            <li>
+                <a href="http://windows.microsoft.com/en-us/internet-explorer/download-ie">
+                    <img src="assets/images/browser/ie.png" alt="">
+                    <div>IE (9 & above)</div>
+                </a>
+            </li>
+        </ul>
+    </div>
+    <p>Sorry for the inconvenience!</p>
+</div>
+<![endif]-->
+<!-- Warning Section Ends -->
+<!-- Required Jquery -->
+<script type="text/javascript" src="assets/js/jquery/jquery.min.js"></script>
+<script type="text/javascript" src="assets/js/jquery-ui/jquery-ui.min.js"></script>
+<script type="text/javascript" src="assets/js/popper.js/popper.min.js"></script>
+<script type="text/javascript" src="assets/js/bootstrap/js/bootstrap.min.js"></script>
+<!-- jquery slimscroll js -->
+<script type="text/javascript" src="assets/js/jquery-slimscroll/jquery.slimscroll.js"></script>
+<!-- modernizr js -->
+<script type="text/javascript" src="assets/js/modernizr/modernizr.js"></script>
+<!-- am chart -->
+<script src="assets/pages/widget/amchart/amcharts.min.js"></script>
+<script src="assets/pages/widget/amchart/serial.min.js"></script>
+<!-- Todo js -->
+<script type="text/javascript " src="assets/pages/todo/todo.js "></script>
+<!-- Custom js -->
+<script type="text/javascript" src="assets/pages/dashboard/custom-dashboard.js"></script>
+<script type="text/javascript" src="assets/js/script.js"></script>
+<script type="text/javascript " src="assets/js/SmoothScroll.js"></script>
+<script src="assets/js/pcoded.min.js"></script>
+<script src="assets/js/demo-12.js"></script>
+<script src="assets/js/jquery.mCustomScrollbar.concat.min.js"></script>
+<script>
+var $window = $(window);
+var nav = $('.fixed-button');
+    $window.scroll(function(){
+        if ($window.scrollTop() >= 200) {
+         nav.addClass('active');
+     }
+     else {
+         nav.removeClass('active');
+     }
+ });
+</script>
+</body>
+
+</html>
