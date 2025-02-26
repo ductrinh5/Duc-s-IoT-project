@@ -9,29 +9,30 @@
       <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
       <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
       <![endif]-->
-      <!-- Meta -->
-      <meta charset="utf-8">
-      <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimal-ui">
-      <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-      <meta name="description" content="CodedThemes">
-      <meta name="keywords" content=" Admin , Responsive, Landing, Bootstrap, App, Template, Mobile, iOS, Android, apple, creative app">
-      <meta name="author" content="CodedThemes">
-      <!-- Favicon icon -->
-      <link rel="icon" href="assets/images/favicon.ico" type="image/x-icon">
-      <!-- Google font-->
-      <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,600" rel="stylesheet">
-      <!-- Required Fremwork -->
-      <link rel="stylesheet" type="text/css" href="assets/css/bootstrap/css/bootstrap.min.css">
-      <!-- themify-icons line icon -->
-      <link rel="stylesheet" type="text/css" href="assets/icon/themify-icons/themify-icons.css">
-      <!-- ico font -->
-      <link rel="stylesheet" type="text/css" href="assets/icon/icofont/css/icofont.css">
-      <!-- Style.css -->
-      <link rel="stylesheet" type="text/css" href="assets/css/style.css">
-      <link rel="stylesheet" type="text/css" href="assets/css/jquery.mCustomScrollbar.css">
-  </head>
+    <!-- Meta -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimal-ui">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="description" content="CodedThemes">
+    <meta name="keywords"
+        content=" Admin , Responsive, Landing, Bootstrap, App, Template, Mobile, iOS, Android, apple, creative app">
+    <meta name="author" content="CodedThemes">
+    <!-- Favicon icon -->
+    <link rel="icon" href="assets/images/favicon.ico" type="image/x-icon">
+    <!-- Google font-->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,600" rel="stylesheet">
+    <!-- Required Fremwork -->
+    <link rel="stylesheet" type="text/css" href="assets/css/bootstrap/css/bootstrap.min.css">
+    <!-- themify-icons line icon -->
+    <link rel="stylesheet" type="text/css" href="assets/icon/themify-icons/themify-icons.css">
+    <!-- ico font -->
+    <link rel="stylesheet" type="text/css" href="assets/icon/icofont/css/icofont.css">
+    <!-- Style.css -->
+    <link rel="stylesheet" type="text/css" href="assets/css/style.css">
+    <link rel="stylesheet" type="text/css" href="assets/css/jquery.mCustomScrollbar.css">
+</head>
 
-  <body>
+<body>
     <!-- Pre-loader start -->
     <div class="theme-loader">
         <div class="ball-scale">
@@ -75,7 +76,7 @@
         <div class="pcoded-overlay-box"></div>
         <div class="pcoded-container navbar-wrapper">
 
-            
+
             <div class="pcoded-main-container">
                 <div class="pcoded-wrapper">
                     <nav class="pcoded-navbar">
@@ -94,13 +95,14 @@
                                     <ul>
                                         <li class="more-details">
                                             <a href="profile.html"><i class="ti-user"></i>View Profile</a>
-                                            <a href="auth-normal-sign-in.html"><i class="ti-layout-sidebar-left"></i>Logout</a>
+                                            <a href="auth-normal-sign-in.html"><i
+                                                    class="ti-layout-sidebar-left"></i>Logout</a>
                                         </li>
                                     </ul>
                                 </div>
                             </div>
                             <div class="pcoded-search">
-                                <span class="searchbar-toggle">  </span>
+                                <span class="searchbar-toggle"> </span>
                                 <div class="pcoded-search-box ">
                                     <input type="text" placeholder="Search">
                                     <span class="search-icon"><i class="ti-search" aria-hidden="true"></i></span>
@@ -114,19 +116,19 @@
                                         <span class="pcoded-mcaret"></span>
                                     </a>
                                 </li>
-                                
-                            </ul>                            
+
+                            </ul>
 
                             <ul class="pcoded-item pcoded-left-item">
-                                
-                                <li >
+
+                                <li>
                                     <a href="history.html">
                                         <span class="pcoded-micon"><i class="ti-layers"></i><b>FC</b></span>
                                         <span class="pcoded-mtext" data-i18n="nav.form-components.main">History</span>
                                         <span class="pcoded-mcaret"></span>
                                     </a>
                                 </li>
-                                
+
                                 <li class="active">
                                     <a href="data.html">
                                         <span class="pcoded-micon"><i class="ti-layers"></i><b>FC</b></span>
@@ -134,141 +136,187 @@
                                         <span class="pcoded-mcaret"></span>
                                     </a>
                                 </li>
-                                
+
                             </ul>
 
-                        
+
                         </div>
                     </nav>
-                    <div class="container mt-4 pcoded-content">
-                        <h2 class="text-center">Sensor Data Monitor</h2>
-                    
+                    <div class="container pcoded-content">
+                        <h2 class="py-2 text-center">Thông tin dữ liệu cảm biến</h2>
+
                         <!-- Search Bar & Page Size Selector -->
                         <div class="row mb-3">
                             <div class="col-md-6">
-                                <input type="text" id="searchInput" class="form-control" placeholder="Search sensor...">
-                            </div>
-                            <div class="col-md-3">
-                                <select id="pageSize" class="form-select">
-                                    <option value="5">5 Rows</option>
-                                    <option value="20" selected>20 Rows</option>
-                                    <option value="50">50 Rows</option>
-                                    <option value="100">100 Rows</option>
-                                </select>
+                                <input type="text" id="searchInput" class="form-control" placeholder="Tìm chính xác...">
                             </div>
                         </div>
-                    
+
+                        <div class="mb-2">
+                        <input type="datetime-local" id="startTime">
+                        <input type="datetime-local" id="endTime">
+                        <button onclick="filterByTime()">Lọc</button>
+                        </div>
+
                         <!-- Table -->
                         <table class="table table-bordered table-hover text-center">
                             <thead class="table-primary">
                                 <tr>
                                     <th>#</th>
-                                    <th>Sensor Name</th>
-                                    <th>Type</th>
-                                    <th>Value</th>
-                                    <th>Unit</th>
-                                    <th>Time</th>
+                                    <th>Tên cảm biến</th>
+                                    <th>Nhiệt độ</th>
+                                    <th>Độ ẩm</th>
+                                    <th>Ánh sáng</th>
+                                    <th>Thời gian</th>
                                 </tr>
                             </thead>
                             <tbody id="sensorTable">
                                 <!-- Rows will be generated dynamically -->
                             </tbody>
                         </table>
-                    
+
                         <!-- Pagination -->
                         <nav>
                             <ul class="pagination justify-content-center" id="pagination">
                                 <!-- Pagination buttons will be generated dynamically -->
                             </ul>
                         </nav>
+
+                        <div class="d-flex justify-content-end">
+                            <select id="pageSize" class="form-select">
+                                <option value="5">5</option>
+                                <option value="20" selected>20</option>
+                                <option value="50">50</option>
+                                <option value="100">100</option>
+                            </select>
+                        </div>
                     </div>
-                    
+
                     <script>
                         const sensors = [
-                            { id: 1, name: "DHT22", type: "Temperature", value: 25.3, unit: "°C", time: "2025-02-17 10:00 AM" },
-                            { id: 2, name: "DHT22", type: "Humidity", value: 60.1, unit: "%", time: "2025-02-17 10:01 AM" },
-                            { id: 3, name: "MQ-2", type: "Gas", value: 0.25, unit: "ppm", time: "2025-02-17 10:02 AM" },
-                            { id: 4, name: "LDR", type: "Light", value: 450, unit: "lux", time: "2025-02-17 10:03 AM" },
-                            { id: 5, name: "BMP180", type: "Pressure", value: 1013, unit: "hPa", time: "2025-02-17 10:04 AM" },
-                            { id: 6, name: "DHT22", type: "Temperature", value: 25.7, unit: "°C", time: "2025-02-17 10:05 AM" },
-                            { id: 7, name: "DHT22", type: "Humidity", value: 58.9, unit: "%", time: "2025-02-17 10:06 AM" },
-                            { id: 8, name: "LDR", type: "Light", value: 700, unit: "lux", time: "2025-02-17 10:07 AM" },
-                            { id: 9, name: "MQ-2", type: "Gas", value: 0.18, unit: "ppm", time: "2025-02-17 10:08 AM" },
-                            { id: 10, name: "BMP180", type: "Pressure", value: 1011, unit: "hPa", time: "2025-02-17 10:09 AM" }
+                            { id: 1, name: "DHT22", temp: "25.3°C", hum: "53.9%", light: "450 lux", time: "2025-02-10 10:00:15 AM" },
+                            { id: 2, name: "DHT22", temp: "25.3°C", hum: "61.1%", light: "350 lux", time: "2025-02-16 10:01:30 AM" },
+                            { id: 3, name: "MQ-2", temp: "25.3°C", hum: "25.1%", light: "770 lux", time: "2025-02-19 10:02:45 AM" },
+                            { id: 4, name: "LDR", temp: "25.3°C", hum: "52.3%", light: "430 lux", time: "2025-02-15 10:03:20 AM" },
+                            { id: 5, name: "BMP180", temp: "25.3°C", hum: "28.4%", light: "760 lux", time: "2025-02-13 10:04:55 AM" },
+                            { id: 6, name: "DHT22", temp: "25.3°C", hum: "53.4%", light: "440 lux", time: "2025-02-13 10:05:10 AM" },
+                            { id: 7, name: "DHT22", temp: "25.3°C", hum: "78.5%", light: "350 lux", time: "2025-02-14 10:06:35 AM" },
+                            { id: 8, name: "LDR", temp: "25.3°C", hum: "68.3%", light: "150 lux", time: "2025-02-15 10:07:50 AM" },
+                            { id: 9, name: "MQ-2", temp: "25.3°C", hum: "18.2%", light: "200 lux", time: "2025-02-13 10:08:25 AM" },
+                            { id: 10, name: "BMP180", temp: "25.3°C", hum: "67.6%", light: "100 lux", time: "2025-02-17 10:09:40 AM" }
                         ];
-                    
+
                         let currentPage = 1;
+                        let filteredSensors = sensors; // Store filtered data globally
                         let pageSize = parseInt(document.getElementById("pageSize").value);
-                    
+
+                        function parseDateTime(dateTimeStr) {
+                            return new Date(dateTimeStr.replace(/(\d{2}:\d{2}:\d{2}) (AM|PM)/, (match, time, period) => {
+                                let [hours, minutes, seconds] = time.split(':').map(Number);
+                                if (period === "PM" && hours !== 12) hours += 12;
+                                if (period === "AM" && hours === 12) hours = 0;
+                                return `${hours.toString().padStart(2, '0')}:${minutes}:${seconds}`;
+                            }));
+                        }
+
+                        function filterByTime() {
+                            const startTime = document.getElementById("startTime").value;
+                            const endTime = document.getElementById("endTime").value;
+
+                            if (!startTime || !endTime) {
+                                alert("Please select both start and end times.");
+                                return;
+                            }
+
+                            const start = new Date(startTime);
+                            const end = new Date(endTime);
+
+                            filteredSensors = sensors.filter(item => {
+                                const itemTime = parseDateTime(item.time);
+                                return itemTime >= start && itemTime <= end;
+                            });
+
+                            currentPage = 1; // Reset to first page
+                            displayTable();  // Use the filtered dataset
+
+                        }
+
+
+
                         function displayTable() {
                             const searchQuery = document.getElementById("searchInput").value.toLowerCase();
-                            const filteredData = sensors.filter(item =>
-                                item.name.toLowerCase().includes(searchQuery) ||
-                                item.type.toLowerCase().includes(searchQuery)
+
+                            const searchFilteredData = filteredSensors.filter(item =>
+                                item.time.toLowerCase().includes(searchQuery) ||
+                                item.temp.toLowerCase().includes(searchQuery) ||
+                                item.hum.toLowerCase().includes(searchQuery) ||
+                                item.light.toLowerCase().includes(searchQuery)
                             );
-                    
+
                             const start = (currentPage - 1) * pageSize;
                             const end = start + pageSize;
-                            const paginatedData = filteredData.slice(start, end);
-                    
+                            const paginatedData = searchFilteredData.slice(start, end);
+
                             const tableBody = document.getElementById("sensorTable");
                             tableBody.innerHTML = "";
-                    
+
                             paginatedData.forEach((item, index) => {
                                 const row = `<tr>
-                                    <td>${start + index + 1}</td>
-                                    <td>${item.name}</td>
-                                    <td>${item.type}</td>
-                                    <td>${item.value}</td>
-                                    <td>${item.unit}</td>
-                                    <td>${item.time}</td>
-                                </tr>`;
+            <td>${start + index + 1}</td>
+            <td>${item.name}</td>
+            <td>${item.temp}</td>
+            <td>${item.hum}</td>
+            <td>${item.light}</td>
+            <td>${item.time}</td>
+        </tr>`;
                                 tableBody.innerHTML += row;
                             });
-                    
-                            updatePagination(filteredData.length);
+
+                            updatePagination(searchFilteredData.length);
                         }
-                    
+
+
                         function updatePagination(totalItems) {
                             const totalPages = Math.ceil(totalItems / pageSize);
                             const paginationElement = document.getElementById("pagination");
                             paginationElement.innerHTML = "";
-                    
+
                             for (let i = 1; i <= totalPages; i++) {
                                 const activeClass = i === currentPage ? "active" : "";
                                 paginationElement.innerHTML += `
-                                    <li class="page-item ${activeClass}">
-                                        <a class="page-link" href="#" onclick="changePage(${i})">${i}</a>
-                                    </li>`;
+                <li class="page-item ${activeClass}">
+                    <a class="page-link" href="#" onclick="changePage(${i})">${i}</a>
+                </li>`;
                             }
                         }
-                    
+
                         function changePage(page) {
                             currentPage = page;
                             displayTable();
                         }
-                    
+
                         document.getElementById("searchInput").addEventListener("input", () => {
                             currentPage = 1;
                             displayTable();
                         });
-                    
+
                         document.getElementById("pageSize").addEventListener("change", () => {
                             pageSize = parseInt(document.getElementById("pageSize").value);
                             currentPage = 1;
                             displayTable();
                         });
-                    
+
                         displayTable();
                     </script>
-                    </div>
-                </div>
-                
-            </div>
-        </div>
 
-        <!-- Warning Section Starts -->
-        <!-- Older IE warning message -->
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- Warning Section Starts -->
+    <!-- Older IE warning message -->
     <!--[if lt IE 9]>
 <div class="ie-warning">
     <h1>Warning!!</h1>
@@ -310,40 +358,40 @@
     <p>Sorry for the inconvenience!</p>
 </div>
 <![endif]-->
-<!-- Warning Section Ends -->
-<!-- Required Jquery -->
-<script type="text/javascript" src="assets/js/jquery/jquery.min.js"></script>
-<script type="text/javascript" src="assets/js/jquery-ui/jquery-ui.min.js"></script>
-<script type="text/javascript" src="assets/js/popper.js/popper.min.js"></script>
-<script type="text/javascript" src="assets/js/bootstrap/js/bootstrap.min.js"></script>
-<!-- jquery slimscroll js -->
-<script type="text/javascript" src="assets/js/jquery-slimscroll/jquery.slimscroll.js"></script>
-<!-- modernizr js -->
-<script type="text/javascript" src="assets/js/modernizr/modernizr.js"></script>
-<!-- am chart -->
-<script src="assets/pages/widget/amchart/amcharts.min.js"></script>
-<script src="assets/pages/widget/amchart/serial.min.js"></script>
-<!-- Todo js -->
-<script type="text/javascript " src="assets/pages/todo/todo.js "></script>
-<!-- Custom js -->
-<script type="text/javascript" src="assets/pages/dashboard/custom-dashboard.js"></script>
-<script type="text/javascript" src="assets/js/script.js"></script>
-<script type="text/javascript " src="assets/js/SmoothScroll.js"></script>
-<script src="assets/js/pcoded.min.js"></script>
-<script src="assets/js/demo-12.js"></script>
-<script src="assets/js/jquery.mCustomScrollbar.concat.min.js"></script>
-<script>
-var $window = $(window);
-var nav = $('.fixed-button');
-    $window.scroll(function(){
-        if ($window.scrollTop() >= 200) {
-         nav.addClass('active');
-     }
-     else {
-         nav.removeClass('active');
-     }
- });
-</script>
+    <!-- Warning Section Ends -->
+    <!-- Required Jquery -->
+    <script type="text/javascript" src="assets/js/jquery/jquery.min.js"></script>
+    <script type="text/javascript" src="assets/js/jquery-ui/jquery-ui.min.js"></script>
+    <script type="text/javascript" src="assets/js/popper.js/popper.min.js"></script>
+    <script type="text/javascript" src="assets/js/bootstrap/js/bootstrap.min.js"></script>
+    <!-- jquery slimscroll js -->
+    <script type="text/javascript" src="assets/js/jquery-slimscroll/jquery.slimscroll.js"></script>
+    <!-- modernizr js -->
+    <script type="text/javascript" src="assets/js/modernizr/modernizr.js"></script>
+    <!-- am chart -->
+    <script src="assets/pages/widget/amchart/amcharts.min.js"></script>
+    <script src="assets/pages/widget/amchart/serial.min.js"></script>
+    <!-- Todo js -->
+    <script type="text/javascript " src="assets/pages/todo/todo.js "></script>
+    <!-- Custom js -->
+    <script type="text/javascript" src="assets/pages/dashboard/custom-dashboard.js"></script>
+    <script type="text/javascript" src="assets/js/script.js"></script>
+    <script type="text/javascript " src="assets/js/SmoothScroll.js"></script>
+    <script src="assets/js/pcoded.min.js"></script>
+    <script src="assets/js/demo-12.js"></script>
+    <script src="assets/js/jquery.mCustomScrollbar.concat.min.js"></script>
+    <script>
+        var $window = $(window);
+        var nav = $('.fixed-button');
+        $window.scroll(function () {
+            if ($window.scrollTop() >= 200) {
+                nav.addClass('active');
+            }
+            else {
+                nav.removeClass('active');
+            }
+        });
+    </script>
 </body>
 
 </html>
