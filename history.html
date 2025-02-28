@@ -165,7 +165,7 @@
                                     <th>#</th>
                                     <th>Tên</th>
                                     <th>Trạng thái</th>
-                                    <th>Thời gian</th>
+                                    <th onclick="sortTable('time')">Thời gian <i id="timeSortIcon" class="ti-arrows-vertical"></i></th>
                                     <th>Ghi chú</th>
                                 </tr>
                             </thead>
@@ -206,6 +206,8 @@
                         let currentPage = 1;
                         let filteredData = data;
                         let pageSize = parseInt(document.getElementById("pageSize").value);
+                        let sortColumn = null;
+                        let sortDirection = 1; // 1 for ascending, -1 for descending
 
                         function parseDateTime(dateTimeStr) {
                             return new Date(dateTimeStr.replace(/(\d{2}:\d{2}:\d{2}) (AM|PM)/, (match, time, period) => {
@@ -236,6 +238,41 @@
                             currentPage = 1; // Reset to first page
                             displayTable();  // Use the filtered dataset
 
+                        }
+
+                        function sortTable(column) {
+                            if (sortColumn === column) {
+                                sortDirection *= -1;
+                            } else {
+                                sortColumn = column;
+                                sortDirection = 1;
+                            }
+
+                            filteredData.sort((a, b) => {
+                                let aValue, bValue;
+
+                                    aValue = parseDateTime(a[column]).getTime();
+                                    bValue = parseDateTime(b[column]).getTime();
+
+                                return (aValue - bValue) * sortDirection;
+                            });
+
+                            updateSortIcons(column);
+                            displayTable();
+                        }
+
+                        function updateSortIcons(column) {
+                            const icons = {
+                                time: document.getElementById("timeSortIcon")
+                            };
+
+                            Object.values(icons).forEach(icon => {
+                                icon.className = "ti-arrows-vertical";
+                            });
+
+                            if (sortColumn === column) {
+                                icons[column].className = sortDirection === 1 ? "ti-arrow-up" : "ti-arrow-down";
+                            }
                         }
 
                         function displayTable() {

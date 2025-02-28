@@ -150,7 +150,20 @@
                             <div class="col-md-6">
                                 <input type="text" id="searchInput" class="form-control" placeholder="Tìm chính xác...">
                             </div>
+                            <div class="col-md-3">
+                                <select id="filterColumn" class="form-select">
+                                    <option value="all">Tất cả</option>
+                                    <option value="id">#</option>
+                                    <option value="name">Tên cảm biến</option>
+                                    <option value="temp">Nhiệt độ</option>
+                                    <option value="hum">Độ ẩm</option>
+                                    <option value="light">Ánh sáng</option>
+                                    <option value="time">Thời gian</option>
+                                </select>
+                            </div>
                         </div>
+
+                    
 
                         <div class="mb-2">
                         <input type="datetime-local" id="startTime">
@@ -164,10 +177,10 @@
                                 <tr>
                                     <th>#</th>
                                     <th>Tên cảm biến</th>
-                                    <th>Nhiệt độ</th>
-                                    <th>Độ ẩm</th>
-                                    <th>Ánh sáng</th>
-                                    <th>Thời gian</th>
+                                    <th onclick="sortTable('temp')">Nhiệt độ <i id="tempSortIcon" class="ti-arrows-vertical"></i></th>
+                                    <th onclick="sortTable('hum')">Độ ẩm <i id="humSortIcon" class="ti-arrows-vertical"></i></th>
+                                    <th onclick="sortTable('light')">Ánh sáng <i id="lightSortIcon" class="ti-arrows-vertical"></i></th>
+                                    <th onclick="sortTable('time')">Thời gian <i id="timeSortIcon" class="ti-arrows-vertical"></i></th>
                                 </tr>
                             </thead>
                             <tbody id="sensorTable">
@@ -195,20 +208,22 @@
                     <script>
                         const sensors = [
                             { id: 1, name: "DHT22", temp: "25.3°C", hum: "53.9%", light: "450 lux", time: "2025-02-10 10:00:15 AM" },
-                            { id: 2, name: "DHT22", temp: "25.3°C", hum: "61.1%", light: "350 lux", time: "2025-02-16 10:01:30 AM" },
-                            { id: 3, name: "MQ-2", temp: "25.3°C", hum: "25.1%", light: "770 lux", time: "2025-02-19 10:02:45 AM" },
-                            { id: 4, name: "LDR", temp: "25.3°C", hum: "52.3%", light: "430 lux", time: "2025-02-15 10:03:20 AM" },
-                            { id: 5, name: "BMP180", temp: "25.3°C", hum: "28.4%", light: "760 lux", time: "2025-02-13 10:04:55 AM" },
-                            { id: 6, name: "DHT22", temp: "25.3°C", hum: "53.4%", light: "440 lux", time: "2025-02-13 10:05:10 AM" },
-                            { id: 7, name: "DHT22", temp: "25.3°C", hum: "78.5%", light: "350 lux", time: "2025-02-14 10:06:35 AM" },
-                            { id: 8, name: "LDR", temp: "25.3°C", hum: "68.3%", light: "150 lux", time: "2025-02-15 10:07:50 AM" },
-                            { id: 9, name: "MQ-2", temp: "25.3°C", hum: "18.2%", light: "200 lux", time: "2025-02-13 10:08:25 AM" },
-                            { id: 10, name: "BMP180", temp: "25.3°C", hum: "67.6%", light: "100 lux", time: "2025-02-17 10:09:40 AM" }
+                            { id: 2, name: "DHT22", temp: "23.1°C", hum: "61.1%", light: "350 lux", time: "2025-02-16 10:01:30 AM" },
+                            { id: 3, name: "MQ-2", temp: "26.2°C", hum: "25.1%", light: "770 lux", time: "2025-02-19 10:02:45 AM" },
+                            { id: 4, name: "LDR", temp: "28.6°C", hum: "52.3%", light: "430 lux", time: "2025-02-15 10:03:20 AM" },
+                            { id: 5, name: "BMP180", temp: "29.3°C", hum: "28.4%", light: "760 lux", time: "2025-02-13 10:04:55 AM" },
+                            { id: 6, name: "DHT22", temp: "23.7°C", hum: "53.4%", light: "440 lux", time: "2025-02-13 10:05:10 AM" },
+                            { id: 7, name: "DHT22", temp: "20.6°C", hum: "78.5%", light: "350 lux", time: "2025-02-14 10:06:35 AM" },
+                            { id: 8, name: "LDR", temp: "23.0°C", hum: "68.3%", light: "150 lux", time: "2025-02-15 10:07:50 AM" },
+                            { id: 9, name: "MQ-2", temp: "21.2°C", hum: "18.2%", light: "200 lux", time: "2025-02-13 10:08:25 AM" },
+                            { id: 10, name: "BMP180", temp: "29.3°C", hum: "67.6%", light: "100 lux", time: "2025-02-17 10:09:40 AM" }
                         ];
 
                         let currentPage = 1;
                         let filteredSensors = sensors; // Store filtered data globally
                         let pageSize = parseInt(document.getElementById("pageSize").value);
+                        let sortColumn = null;
+                        let sortDirection = 1; // 1 for ascending, -1 for descending
 
                         function parseDateTime(dateTimeStr) {
                             return new Date(dateTimeStr.replace(/(\d{2}:\d{2}:\d{2}) (AM|PM)/, (match, time, period) => {
@@ -241,39 +256,91 @@
 
                         }
 
+                        function sortTable(column) {
+                            if (sortColumn === column) {
+                                sortDirection *= -1;
+                            } else {
+                                sortColumn = column;
+                                sortDirection = 1;
+                            }
 
+                            filteredSensors.sort((a, b) => {
+                                let aValue, bValue;
 
-                        function displayTable() {
-                            const searchQuery = document.getElementById("searchInput").value.toLowerCase();
+                                if (column === "time") {
+                                    aValue = parseDateTime(a[column]).getTime();
+                                    bValue = parseDateTime(b[column]).getTime();
+                                } else {
+                                    aValue = parseFloat(a[column]);
+                                    bValue = parseFloat(b[column]);
+                                }
 
-                            const searchFilteredData = filteredSensors.filter(item =>
-                                item.time.toLowerCase().includes(searchQuery) ||
-                                item.temp.toLowerCase().includes(searchQuery) ||
-                                item.hum.toLowerCase().includes(searchQuery) ||
-                                item.light.toLowerCase().includes(searchQuery)
-                            );
-
-                            const start = (currentPage - 1) * pageSize;
-                            const end = start + pageSize;
-                            const paginatedData = searchFilteredData.slice(start, end);
-
-                            const tableBody = document.getElementById("sensorTable");
-                            tableBody.innerHTML = "";
-
-                            paginatedData.forEach((item, index) => {
-                                const row = `<tr>
-            <td>${start + index + 1}</td>
-            <td>${item.name}</td>
-            <td>${item.temp}</td>
-            <td>${item.hum}</td>
-            <td>${item.light}</td>
-            <td>${item.time}</td>
-        </tr>`;
-                                tableBody.innerHTML += row;
+                                return (aValue - bValue) * sortDirection;
                             });
 
-                            updatePagination(searchFilteredData.length);
+                            updateSortIcons(column);
+                            displayTable();
                         }
+
+                        function updateSortIcons(column) {
+                            const icons = {
+                                temp: document.getElementById("tempSortIcon"),
+                                hum: document.getElementById("humSortIcon"),
+                                light: document.getElementById("lightSortIcon"),
+                                time: document.getElementById("timeSortIcon")
+                            };
+
+                            Object.values(icons).forEach(icon => {
+                                icon.className = "ti-arrows-vertical";
+                            });
+
+                            if (sortColumn === column) {
+                                icons[column].className = sortDirection === 1 ? "ti-arrow-up" : "ti-arrow-down";
+                            }
+                        }
+
+                        function displayTable() {
+        const searchQuery = document.getElementById("searchInput").value.toLowerCase();
+        const filterColumn = document.getElementById("filterColumn").value;
+
+        const searchFilteredData = filteredSensors.filter(item => {
+            if (filterColumn === "all") {
+                return (
+                    item.time.toLowerCase().includes(searchQuery) ||
+                    item.temp.toLowerCase().includes(searchQuery) ||
+                    item.hum.toLowerCase().includes(searchQuery) ||
+                    item.light.toLowerCase().includes(searchQuery) ||
+                    item.name.toLowerCase().includes(searchQuery) ||
+                    item.id.toString().includes(searchQuery)
+                );
+            } else {
+                const columnValue = item[filterColumn].toString().toLowerCase();
+                return columnValue.includes(searchQuery);
+            }
+        });
+
+        const start = (currentPage - 1) * pageSize;
+        const end = start + pageSize;
+        const paginatedData = searchFilteredData.slice(start, end);
+
+        const tableBody = document.getElementById("sensorTable");
+        tableBody.innerHTML = "";
+
+        paginatedData.forEach((item, index) => {
+            const row = `<tr>
+                <td>${start + index + 1}</td>
+                <td>${item.name}</td>
+                <td>${item.temp}</td>
+                <td>${item.hum}</td>
+                <td>${item.light}</td>
+                <td>${item.time}</td>
+            </tr>`;
+            tableBody.innerHTML += row;
+        });
+
+        updatePagination(searchFilteredData.length);
+    }
+
 
 
                         function updatePagination(totalItems) {
@@ -305,6 +372,11 @@
                             currentPage = 1;
                             displayTable();
                         });
+
+                        document.getElementById("filterColumn").addEventListener("change", () => {
+        currentPage = 1;
+        displayTable();
+    });
 
                         displayTable();
                     </script>
